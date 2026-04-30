@@ -32,7 +32,7 @@ services:
     volumes:
       - ${UPLOAD_LOCATION:-./affine/storage}:/root/.affine/storage
       - ${CONFIG_LOCATION:-./affine/config}:/root/.affine/config
-    command: ['sh', '-c', 'node ./scripts/self-host-predeploy.js']
+    command: ['sh', '-c', 'yarn prisma migrate deploy']
     env_file:
       - .env
     environment:
