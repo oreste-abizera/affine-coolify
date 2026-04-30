@@ -21,6 +21,11 @@ services:
       - DATABASE_URL=postgresql://${DB_USERNAME:-affine}:${DB_PASSWORD:-affine_password}@postgres:5432/${DB_DATABASE:-affine}
       - AFFINE_INDEXER_ENABLED=${AFFINE_INDEXER_ENABLED:-false}
     command: ['sh', '-c', 'yarn prisma migrate deploy && node ./dist/main.js']
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3010/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     restart: unless-stopped
     networks:
       - affine_network
