@@ -72,7 +72,7 @@ Visit `https://affine.yourdomain.com` — you'll be prompted to create your admi
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/affine-coolify.git
+git clone https://github.com/oreste-abizera/affine-coolify.git
 cd affine-coolify
 
 # Create your env file
