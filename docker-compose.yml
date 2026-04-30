@@ -38,6 +38,7 @@ services:
     environment:
       - REDIS_SERVER_HOST=redis
       - DATABASE_URL=postgresql://${DB_USERNAME:-affine}:${DB_PASSWORD:-affine_password}@postgres:5432/${DB_DATABASE:-affine}
+      - AFFINE_INDEXER_ENABLED=${AFFINE_INDEXER_ENABLED:-false}
     depends_on:
       redis:
         condition: service_healthy
